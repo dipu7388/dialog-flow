@@ -3,6 +3,7 @@ import path from 'path';
 import open from 'open';
 import webpack from 'webpack';
 import config from '../webpack.config.dev';
+import unirest from 'unirest'
 
 /* eslint-disable no-console */
 
@@ -34,6 +35,41 @@ app.get('/name', function(req, res) {
     {"id": 1,"firstName":"Dheerendra","lastName":"Singh","email":"aaaa7388@gmail.com"}
   ]);
 });
+
+app.get('/getMovies',function (request,response)  {
+  if(request.body.result.parameters['top-rated']) {
+      var req = unirest("GET", "https://localhost:3000/users");
+          req.query({
+              "page": "1",
+              "language": "en-US",
+              "api_key": ""
+          });
+          req.send("{}");
+          req.end(function(res) {
+              if(res.error) {
+                  response.setHeader('Content-Type', 'application/json');
+                  response.send(JSON.stringify({
+                      "speech" : "Error. Can you try it again ? ",
+                      "displayText" : "Error. Can you try it again ? "
+                  }));
+              } else if(res.body.results.length > 0) {
+                  let result = res.body.results;
+                  let output = '';
+                  for(let i = 0; i<result.length;i++) {
+                      output += result[i].title;
+                      output+="\n"
+                  }
+                  response.setHeader('Content-Type', 'application/json');
+                  response.send(JSON.stringify({
+                      "speech" : output,
+                      "displayText" : output
+                  }));
+              }
+          });
+  }
+});
+
+
 
 app.listen(port, function(err) {
   if (err) {
