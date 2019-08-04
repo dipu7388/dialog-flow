@@ -12,6 +12,8 @@ export function deleteUser(id) {
 }
 
 function get(url) {
+  // eslint-disable-next-line no-console
+  console.log(url);
   return fetch(baseUrl + url).then(onSuccess, onError);
 }
 

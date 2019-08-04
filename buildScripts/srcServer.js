@@ -28,6 +28,13 @@ app.get('/users', function(req, res) {
   ]);
 });
 
+app.get('/name', function(req, res) {
+  // Hard coding for simplicity. Pretend this hits a real database
+  res.json([
+    {"id": 1,"firstName":"Dheerendra","lastName":"Singh","email":"aaaa7388@gmail.com"}
+  ]);
+});
+
 app.listen(port, function(err) {
   if (err) {
     console.log(err);

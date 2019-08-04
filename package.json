@@ -4,7 +4,7 @@
   "description": "JavaScript development environment Pluralsight course by Cory House",
   "scripts": {
     "prestart": "babel-node buildScripts/startMessage.js",
-    "start": "npm-run-all --parallel security-check open:src lint:watch test:watch start-mockapi",
+    "start": "npm-run-all --parallel  open:src lint:watch test:watch start-mockapi",
     "open:src": "babel-node buildScripts/srcServer.js",
     "lint": "esw webpack.config.* src buildScripts --color",
     "lint:watch": "npm run lint -- --watch",
@@ -22,9 +22,10 @@
     "postbuild": "babel-node buildScripts/distServer.js",
     "deploy": "surge ./dist"
   },
-  "author": "Cory House",
+  "author": "Dheerendra Kumar Singh",
   "license": "MIT",
   "dependencies": {
+    "unirest": "^0.6.0",
     "whatwg-fetch": "1.0.0"
   },
   "devDependencies": {
@@ -42,7 +43,7 @@
     "eslint": "3.8.1",
     "eslint-plugin-import": "2.0.1",
     "eslint-watch": "2.1.14",
-    "express": "4.14.0",
+    "express": "^4.14.0",
     "extract-text-webpack-plugin": "1.0.1",
     "html-webpack-plugin": "2.22.0",
     "jsdom": "9.8.0",
