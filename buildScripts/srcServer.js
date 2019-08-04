@@ -36,6 +36,13 @@ app.get('/name', function(req, res) {
   ]);
 });
 
+app.get('/dialogflowFirebaseFulfillment', ((res, req)=>{
+  console.log(req)
+  res.json([
+    {"id": 1,"firstName":"Dheerendra","lastName":"Singh","email":"aaaa7388@gmail.com"}
+  ]);
+}))
+
 app.get('/getMovies',function (request,response)  {
   if(request.body.result.parameters['top-rated']) {
       var req = unirest("GET", "https://localhost:3000/users");
