@@ -1,7 +1,7 @@
 import 'whatwg-fetch';
-import getBaseUrl from './baseUrl';
+// import getBaseUrl from './baseUrl';
 
-const baseUrl = getBaseUrl();
+// const baseUrl = getBaseUrl();
 
 export function getName() {
   return get('name');
@@ -9,7 +9,7 @@ export function getName() {
 
 
 function get(url) {
-  return fetch(baseUrl + url).then(onSuccess, onError);
+  return fetch('http://localhost:3000/' + url).then(onSuccess, onError);
 }
 
 

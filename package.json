@@ -26,6 +26,8 @@
   "license": "MIT",
   "dependencies": {
     "dialogflow": "^0.10.3",
+    "dialogflow-fulfillment": "^0.6.1",
+    "firebase-functions": "^3.2.0",
     "unirest": "^0.6.0",
     "whatwg-fetch": "1.0.0"
   },

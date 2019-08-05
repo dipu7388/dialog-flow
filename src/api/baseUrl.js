@@ -1,5 +1,5 @@
 export default function getBaseUrl() {
-  return getQueryStringParameterByName('useMockApi') ? 'http://localhost:3001/' : 'https://lsnetx-chatbot.herokuapp.com';
+  return getQueryStringParameterByName('useMockApi') ? 'https://lsnetx-chatbot.herokuapp.com' : 'https://lsnetx-chatbot.herokuapp.com';
 }
 //comment
 function getQueryStringParameterByName(name, url) {

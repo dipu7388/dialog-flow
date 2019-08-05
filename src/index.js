@@ -17,7 +17,7 @@ getUsers().then(result => {
       </tr>`
   });
 getName().then(ele=>{
-  global.document.getElementByTag('body').innerHTML = ele;
+  global.document.getElementsByTagName('body')[0].innerHTML += JSON.stringify( ele);
 
 })
   global.document.getElementById('users').innerHTML = usersBody;

@@ -36,12 +36,12 @@ app.get('/name', function(req, res) {
   ]);
 });
 
-app.get('/dialogflowFirebaseFulfillment', ((res, req)=>{
-  console.log(req)
+app.get('/dk',  function(req, res) {
+  // Hard coding for simplicity. Pretend this hits a real database
+  console.log(req,res);
   res.json([
     {"id": 1,"firstName":"Dheerendra","lastName":"Singh","email":"aaaa7388@gmail.com"}
-  ]);
-}))
+  ]);});
 
 app.get('/getMovies',function (request,response)  {
   if(request.body.result.parameters['top-rated']) {
@@ -82,6 +82,6 @@ app.listen(port, function(err) {
   if (err) {
     console.log(err);
   } else {
-    open('http://localhost:' + port);
+    open('https://lsnetx-chatbot.herokuapp.com' + port);
   }
 });
